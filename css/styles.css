@@ -1,0 +1,1372 @@
+/* Reset CSS base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Colori Ferrari */
+:root {
+    --ferrari-red: #DC143C;
+    --ferrari-dark-red: #8B0000;
+    --ferrari-black: #0A0A0A;
+    --ferrari-white: #FFFFFF;
+    --ferrari-grey-dark: #2D2D2D;
+    --ferrari-grey: #1A1A1A;
+    --ferrari-grey-light: #666666;
+    --ferrari-grey-light-secondary: #CCCCCC;
+    --ferrari-grey-metallic: #4A4A4A;
+    --ferrari-white-pearl: #F8F8F8;
+    --ferrari-gold: #FFD700;
+    --ferrari-red-transparent: rgba(220, 20, 60, 0.1);
+    --ferrari-dark-grey: #333333;
+    --ferrari-light-grey: #999999;
+    
+    --ferrari-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --ferrari-shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+    --border-radius: 12px;
+    --max-width: 1200px;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--ferrari-dark-grey);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--ferrari-light-grey);
+}
+
+.text-ferrari {
+    color: var(--ferrari-red);
+}
+
+/* Pulsanti Ferrari */
+.ferrari-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 14px 28px;
+    background: var(--ferrari-red);
+    color: var(--ferrari-white);
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1.5rem;
+}
+
+.ferrari-btn:hover {
+    background: #b8112a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.4);
+}
+
+.ferrari-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+}
+
+.ferrari-btn i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.ferrari-btn:hover i {
+    transform: translateX(2px);
+}
+
+/* Stato disabilitato */
+.ferrari-btn-disabled {
+    background: #7a7a7a !important;
+    color: #f0f0f0 !important;
+    cursor: not-allowed !important;
+    opacity: 0.85;
+    font-weight: 500;
+}
+
+.ferrari-btn-disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    background: #7a7a7a !important;
+}
+
+.ferrari-btn-disabled i {
+    transform: none !important;
+}
+
+.header {
+    background-color: var(--ferrari-white);
+    box-shadow: var(--ferrari-shadow-dark);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo .logo {
+    height: 40px;
+    width: auto;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--ferrari-dark-grey);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--ferrari-red);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--ferrari-red);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Rimuove l'outline rosso sui link di navigazione */
+.nav-link:focus {
+    outline: none;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--ferrari-dark-grey);
+    transition: var(--transition);
+}
+
+/* Sezione Hero */
+.hero {
+    margin-top: 80px;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.hero-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-title {
+    margin-bottom: 1.5rem;
+    color: var(--ferrari-dark-grey);
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.hero-image {
+    text-align: center;
+}
+
+.hero-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--ferrari-shadow-dark);
+}
+
+/* Sezioni */
+section {
+    padding: 4rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    color: var(--ferrari-dark-grey);
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Sezione Introduzione Sostenibilità */
+.sustainability-intro {
+    background: #ffffff;
+    padding: 5rem 0;
+    position: relative;
+}
+
+.sustainability-intro .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sustainability-intro .section-title {
+    color: #1a1a1a;
+    font-weight: 700;
+    text-shadow: none;
+}
+
+.sustainability-intro .section-subtitle {
+    color: #2c2c2c;
+    font-weight: 500;
+    text-shadow: none;
+}
+
+.intro-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.intro-row:last-child {
+    margin-bottom: 0;
+}
+
+.intro-photo {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease, opacity 0.8s ease, transform 0.8s ease;
+    position: relative;
+    z-index: 10;
+    display: block;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.intro-image-left.animate-in .intro-photo,
+.intro-image-right.animate-in .intro-photo {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.intro-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.intro-image-left,
+.intro-image-right {
+    position: relative;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.intro-image-left.animate-in,
+.intro-image-right.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.intro-text-right,
+.intro-text-left {
+    padding: 2rem;
+}
+
+.intro-text-right h3,
+.intro-text-left h3 {
+    color: #1a1a1a;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    text-shadow: none;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border-left: 4px solid var(--ferrari-red);
+    padding-left: 1rem;
+}
+
+/* Linea blu per la prima riga (crisi climatica) */
+.intro-text-right h3 {
+    border-left-color: #2E86C1;
+}
+
+/* Linea verde per la seconda riga (business sostenibile) */
+.intro-row.reverse .intro-text-left h3 {
+    border-left-color: #28B463;
+}
+
+.intro-text-right p,
+.intro-text-left p {
+    color: #555555;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    text-shadow: none;
+}
+
+/* Testo per la riga in basso (sfondo bianco) */
+.intro-row.reverse .intro-text-left h3 {
+    border-left-color: #28B463;
+}
+
+.intro-row.reverse .intro-text-left p {
+    color: #555555;
+    font-weight: 500;
+    text-shadow: none;
+}
+
+.intro-text-right p:last-child,
+.intro-text-left p:last-child {
+    margin-bottom: 0;
+}
+
+/* Sezione Sostenibilità */
+.sustainability {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/ferrari-sf90.jpg') center/cover no-repeat fixed;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.sustainability .section-title {
+    color: var(--ferrari-white);
+}
+
+.sustainability .section-subtitle {
+    color: #cccccc;
+}
+
+.sustainability-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.sustainability-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.sustainability-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--ferrari-red);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: var(--ferrari-white);
+    font-size: 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-title {
+    color: var(--ferrari-white);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.card-description {
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+/* Sezione Report */
+.reports {
+    background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%);
+    padding: 4rem 0;
+}
+
+.reports .section-title {
+    color: var(--ferrari-grey-dark);
+}
+
+.reports .section-subtitle {
+    color: var(--ferrari-grey-light);
+}
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.report-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--ferrari-shadow);
+    transition: var(--transition);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--ferrari-white);
+}
+
+.report-year {
+    background-color: var(--ferrari-red);
+    color: var(--ferrari-white);
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+}
+
+.report-card > * {
+    padding: 0 2rem;
+}
+
+.report-card .report-year {
+    padding: 1rem 0;
+    margin: 0;
+}
+
+.report-title {
+    margin: 1.5rem 0 1rem;
+    color: #1a1a1a;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.report-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex: 1;
+    color: #2d2d2d;
+}
+
+.report-info {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-rows: auto auto;
+    gap: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: #333333;
+    align-items: center;
+}
+
+.report-left,
+.report-right {
+    display: contents;
+}
+
+.report-pages {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+}
+
+.report-co2 {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+}
+
+.report-size {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+}
+
+.report-change {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+}
+
+.report-size,
+.report-pages,
+.report-co2,
+.report-change {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap !important;
+    overflow: visible;
+    min-height: 1.2rem;
+    line-height: 1.2;
+    width: 100%;
+}
+
+.report-size i,
+.report-pages i,
+.report-co2 i,
+.report-change i {
+    width: 1rem;
+    text-align: center;
+}
+
+.report-co2 {
+    color: #22c55e;
+    font-weight: 600;
+    font-size: 0.8rem;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.3rem;
+}
+
+.report-change {
+    color: var(--ferrari-light-grey);
+    font-weight: 600;
+    font-size: 0.8rem;
+    white-space: nowrap !important;
+    display: flex !important;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.3rem;
+}
+
+.report-change .percentage {
+    font-weight: 600;
+}
+
+.report-change .percentage.positive {
+    color: #ef4444;
+}
+
+.report-change .percentage.negative {
+    color: #22c55e;
+}
+
+.report-change .icon.positive {
+    color: #ef4444;
+}
+
+.report-change .icon.negative {
+    color: #22c55e;
+}
+
+/* Assicura che tutti gli elementi rimangano su una riga */
+.report-co2 *,
+.report-change * {
+    white-space: nowrap !important;
+    display: inline !important;
+}
+
+.report-change .percentage {
+    margin: 0;
+    padding: 0;
+}
+
+/* Pulsanti nelle card */
+.report-card .ferrari-btn {
+    margin: 1.5rem 2rem 2rem;
+    width: calc(100% - 4rem);
+    justify-content: center;
+    align-self: flex-end;
+    margin-top: auto;
+    padding: 16px 24px;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Footer e Obiettivi 2030 */
+.footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+    color: var(--ferrari-white);
+    padding: 4rem 0 2rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--ferrari-white);
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* Container obiettivi con layout moderno */
+.goals-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.goal-item {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+.goal-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Grafici circolari */
+.circular-progress {
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+}
+
+.progress-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--ferrari-red) 0deg,
+        var(--ferrari-red) var(--progress-deg, 0deg),
+        rgba(255, 255, 255, 0.1) var(--progress-deg, 0deg),
+        rgba(255, 255, 255, 0.1) 360deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.6s ease;
+}
+
+.progress-circle::before {
+    content: '';
+    width: 120px;
+    height: 120px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.progress-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.progress-text .percentage {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--ferrari-white);
+    display: block;
+    line-height: 1;
+}
+
+/* Contenuto obiettivo */
+.goal-content {
+    flex: 1;
+}
+
+.goal-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--ferrari-white);
+    font-weight: 700;
+}
+
+.goal-content p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Animazioni specifiche per colore */
+.goal-item:nth-child(1) .progress-circle {
+    background: conic-gradient(
+        #28B463 0deg,
+        #28B463 var(--progress-deg, 162deg),
+        rgba(255, 255, 255, 0.1) var(--progress-deg, 162deg),
+        rgba(255, 255, 255, 0.1) 360deg
+    );
+}
+
+.goal-item:nth-child(2) .progress-circle {
+    background: conic-gradient(
+        #3498DB 0deg,
+        #3498DB var(--progress-deg, 259deg),
+        rgba(255, 255, 255, 0.1) var(--progress-deg, 259deg),
+        rgba(255, 255, 255, 0.1) 360deg
+    );
+}
+
+.goal-item:nth-child(3) .progress-circle {
+    background: conic-gradient(
+        #E67E22 0deg,
+        #E67E22 var(--progress-deg, 137deg),
+        rgba(255, 255, 255, 0.1) var(--progress-deg, 137deg),
+        rgba(255, 255, 255, 0.1) 360deg
+    );
+}
+
+.goal-item:nth-child(4) .progress-circle {
+    background: conic-gradient(
+        var(--ferrari-red) 0deg,
+        var(--ferrari-red) var(--progress-deg, 90deg),
+        rgba(255, 255, 255, 0.1) var(--progress-deg, 90deg),
+        rgba(255, 255, 255, 0.1) 360deg
+    );
+}
+
+/* Card obiettivi */
+.goal-card {
+    background: var(--ferrari-grey-dark);
+    border: 2px solid var(--ferrari-grey-metallic);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 5px 0;
+    text-align: center;
+    transition: var(--transition);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Effetto shimmer per le card */
+.goal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--ferrari-red-transparent), transparent);
+    transition: left 0.6s ease;
+}
+
+.goal-card:hover::before {
+    left: 100%;
+}
+
+.goal-card:hover {
+    border-color: var(--ferrari-red);
+    box-shadow: 0 8px 25px rgba(220, 20, 60, 0.3);
+    background: var(--ferrari-red-transparent);
+    scale: 1.02;
+}
+
+.goal-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--ferrari-red), var(--ferrari-dark-red));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: var(--ferrari-white-pearl);
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+    border: 2px solid var(--ferrari-grey-light-secondary);
+}
+
+.goal-card:hover .goal-icon {
+    background: linear-gradient(135deg, var(--ferrari-gold), var(--ferrari-red));
+    transform: scale(1.1);
+}
+
+.goal-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--ferrari-white-pearl);
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+}
+
+.goal-card p {
+    color: var(--ferrari-white);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.goal-progress {
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.progress-label {
+    display: block;
+    color: var(--ferrari-white-pearl);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--ferrari-grey-metallic);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--ferrari-grey-light-secondary);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--ferrari-red), var(--ferrari-gold));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+/* Effetto shimmer sulla barra di progresso */
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: none;
+    transition: left 0.6s ease;
+}
+
+/* Animazione shimmer solo al hover della card */
+.goal-card:hover .progress-fill::after {
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 0%; }
+    100% { left: 100%; }
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #444;
+    margin: 0 2rem;
+}
+
+.footer-bottom .copyright {
+    margin: 0.5rem 0;
+    color: #888;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.footer-bottom .disclaimer {
+    margin: 0.5rem 0;
+    color: #888;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .reports-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .sustainability-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .sustainability-card {
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .goals-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .goal-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .circular-progress {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .progress-circle::before {
+        width: 95px;
+        height: 95px;
+    }
+    
+    .progress-text .percentage {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sustainability-intro {
+        padding: 3rem 0;
+    }
+    
+    .intro-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .intro-photo {
+        height: 250px;
+    }
+    
+    .intro-text-right,
+    .intro-text-left {
+        padding: 1rem;
+        order: 2;
+    }
+    
+    .intro-image-left,
+    .intro-image-right {
+        order: 1;
+    }
+    
+    .intro-text-right h3,
+    .intro-text-left h3 {
+        font-size: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: var(--ferrari-white);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: var(--transition);
+        box-shadow: var(--ferrari-shadow-dark);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .nav-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .hero-img {
+        width: 100%;
+        height: 300px;
+        object-fit: contain;
+        object-position: center;
+    }
+    
+    section {
+        padding: 3rem 0;
+    }
+    
+    .sustainability {
+        min-height: auto;
+        background-attachment: scroll;
+    }
+    
+    .reports-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .sustainability-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .sustainability-card {
+        padding: 1.5rem;
+        height: auto;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .goals-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .goal-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .circular-progress {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .progress-circle::before {
+        width: 85px;
+        height: 85px;
+    }
+    
+    .progress-text .percentage {
+        font-size: 1.5rem;
+    }
+    
+    .goal-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .goal-content p {
+        font-size: 0.9rem;
+    }
+    
+    .footer .goal-card {
+        padding: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sustainability-intro {
+        padding: 2rem 0;
+    }
+    
+    .sustainability-intro .section-header {
+        margin-bottom: 2rem;
+    }
+    
+    .intro-row {
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .intro-photo {
+        height: 200px;
+    }
+    
+    .intro-text-right,
+    .intro-text-left {
+        padding: 0.5rem;
+    }
+    
+    .intro-text-right h3,
+    .intro-text-left h3 {
+        font-size: 1.3rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Hero */
+    .hero {
+        padding: 2rem 0;
+    }
+    
+    .hero-img {
+        width: 100%;
+        height: 250px;
+        object-fit: contain;
+        object-position: center;
+    }
+    
+    /* Sostenibilità mobile */
+    .sustainability-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sustainability-card {
+        padding: 1.2rem;
+    }
+    
+    /* Card */
+    .sustainability-card {
+        padding: 1.5rem;
+    }
+    
+    .footer .goals-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .footer .goal-card {
+        padding: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer .goal-card h3 {
+        white-space: normal;
+        font-size: 1.3rem;
+    }
+    
+    .footer .goal-card p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    /* Reports mobile - una card per riga */
+    .reports-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .report-card {
+        padding: 1rem;
+    }
+    
+    .report-card > * {
+        padding: 0 1rem;
+    }
+    
+    .report-title {
+        font-size: 1.2rem;
+        white-space: normal;
+    }
+    
+    .report-year {
+        border-radius: 12px 12px 0 0;
+    }
+    
+    .report-card .ferrari-btn {
+        margin: 1.5rem 1rem 1rem;
+        width: calc(100% - 2rem);
+    }
+}
+
+/* iPhone landscape orientation */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+    .reports-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
+    }
+    
+    .report-card {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .footer .goals-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem;
+    }
+    
+    .footer .goal-card {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .footer .goal-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* Accessibilità */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Accessibilità focus */
+a:focus, button:focus {
+    outline: 2px solid var(--ferrari-red);
+    outline-offset: 2px;
+}
+
+/* Stili stampa */
+@media print {
+    .header,
+    .footer {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+}
